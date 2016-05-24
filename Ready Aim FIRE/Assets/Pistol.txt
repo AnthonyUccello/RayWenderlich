@@ -1,0 +1,10 @@
+///////////////////////////////////////////////////////////
+// Component Preset Script
+///////////////////////////////////////////////////////////
+
+ComponentType vp_FPWeaponShooter
+ShellScale 0.094
+ShellEjectPosition 0.63 -0.1 1
+ShellEjectVelocity 0.243
+ShellEjectSpin 0.064
+FirePosition -0.7267232 2.913793 10.66089
