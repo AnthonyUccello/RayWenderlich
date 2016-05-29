@@ -5,15 +5,14 @@ public class Sniper : MonoBehaviour {
 
   public vp_FPPlayerEventHandler playerEventHandler;
   public GameUI gameUI;
-  public Camera camera;
-
+  public Camera mainCamera;
   private bool isZooming = false;
   private bool hasZoomed = false;
 	
 	void Update () {
 	  if(playerEventHandler.Zoom.Active && !isZooming) {
       isZooming = true;
-      StartCoroutine("ZoomSniper");
+      StartCoroutine("zoomSniper");
     } else if (!playerEventHandler.Zoom.Active) {
       gameUI.HideSniperZoom();
       isZooming = false;
@@ -21,11 +20,11 @@ public class Sniper : MonoBehaviour {
     }
 
     if (hasZoomed) {
-      camera.fieldOfView = 6;
+      mainCamera.fieldOfView = 6;
     }
 	}
 
-  IEnumerator ZoomSniper(){
+  IEnumerator zoomSniper(){
     yield return new WaitForSeconds(0.15f);
     gameUI.ShowSniperZoom();
     hasZoomed = true;

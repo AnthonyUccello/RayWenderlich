@@ -6,7 +6,6 @@ public class GameUI : MonoBehaviour {
 
   public Text ammoText;
   public GameObject sniperZoom;
-
   public vp_PlayerEventHandler playerEventHandler;
 	
 	// Update is called once per frame
