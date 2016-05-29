@@ -133,6 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Pistol.txt" />
+    <None Include="Assets\Sniper.txt" />
+    <None Include="Assets\SniperReload.txt" />
+    <None Include="Assets\SniperZoom.txt" />
     <None Include="Assets\UFPS\Base\Content\Art\Body\Animations\_README_Animations.txt" />
     <None Include="Assets\UFPS\Base\Content\Art\Body\Materials\InvisibleShadowCaster.shader" />
     <None Include="Assets\UFPS\Base\Content\Art\Weapons\Source\BasicArms\_README_BasicArms.txt" />
