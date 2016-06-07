@@ -69,14 +69,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Gun.cs" />
-    <Compile Include="Assets\GunEquipper.cs" />
-    <Compile Include="Assets\GunShooter.cs" />
-    <Compile Include="Assets\PathFinder.cs" />
-    <Compile Include="Assets\Robot.cs" />
-    <Compile Include="Assets\RobotSpawn.cs" />
-    <Compile Include="Assets\Unit.cs" />
-    <Compile Include="Assets\Waypoint.cs" />
+    <Compile Include="Assets\Scripts\Game.cs" />
+    <Compile Include="Assets\Scripts\GameUI.cs" />
+    <Compile Include="Assets\Scripts\Gun.cs" />
+    <Compile Include="Assets\Scripts\GunEquipper.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Missile.cs" />
+    <Compile Include="Assets\Scripts\Robot.cs" />
+    <Compile Include="Assets\Scripts\RobotSpawn.cs" />
+    <Compile Include="Assets\Scripts\Unit.cs" />
+    <Compile Include="Assets\Scripts\Waypoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

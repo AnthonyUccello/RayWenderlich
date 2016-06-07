@@ -3,7 +3,13 @@ using System.Collections;
 
 public class Unit : MonoBehaviour {
 
+  public GameUI ui;
+
   public int health;
+  public int armor;
+  public int pistolAmmo;
+  public int shotgunAmmo;
+  public int assaultRifleAmmo;
 
   public void TakeDamage(int amount) {
 
@@ -13,5 +19,7 @@ public class Unit : MonoBehaviour {
     {
       Destroy(gameObject);
     }
+
+    ui.SetHealthText(health);
   }
 }
