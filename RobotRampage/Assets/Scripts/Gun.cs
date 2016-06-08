@@ -3,19 +3,26 @@ using System.Collections;
 
 [RequireComponent (typeof(AudioSource))]
 public class Gun : MonoBehaviour {
+  
+  [SerializeField]
+  Ammo ammo;
 
   public int range;
   public int damage;
 
 	void Update () {
 
-    if (Input.GetMouseButtonDown(0))
-    {
+    if (Input.GetMouseButtonDown(0)) {
       // Left Click
-      Fire();
+      // Check if ammo
+      if (ammo.HasAmmo(tag)) {
+        Fire();
+        ammo.ConsumeAmmo(tag);
+      } else {
+        // Play dry fire
+      }
 
-    } else if (Input.GetMouseButtonDown(1))
-    {
+    } else if (Input.GetMouseButtonDown(1)) {
       // Right Click (Zoom)
     }
 

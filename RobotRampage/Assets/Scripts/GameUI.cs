@@ -13,18 +13,17 @@ public class GameUI : MonoBehaviour {
   [SerializeField]
   private Text scoreText;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+  [SerializeField]
+  Player player;
+
+  // Use this for initialization
+  void Start () {
+    SetArmorText(player.armor);
+    SetHealthText(player.health);
 	}
 
   public void SetArmorText(int armor) {
-
+    armorText.text = "Armor: " + armor;
   }
 
   public void SetHealthText(int health) {
@@ -32,10 +31,10 @@ public class GameUI : MonoBehaviour {
   }
 
   public void SetAmmoText(int ammo) {
-
+    ammoText.text = "Ammo: " + ammo;
   }
 
   public void SetScoreText(int score ) {
-
+    scoreText.text = "Score: " + score;
   }
 }

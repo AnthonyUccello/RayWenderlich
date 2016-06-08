@@ -20,7 +20,7 @@ public class Missile : MonoBehaviour {
   {
     if (collider.gameObject.tag == "Player")
     {
-      collider.gameObject.GetComponent<Unit>().TakeDamage(damage);
+      collider.gameObject.GetComponent<Player>().TakeDamage(damage);
     }
 
     Destroy(gameObject);

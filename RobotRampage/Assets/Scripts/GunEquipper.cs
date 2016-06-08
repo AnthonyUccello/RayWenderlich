@@ -3,15 +3,19 @@ using System.Collections;
 
 public class GunEquipper : MonoBehaviour {
 
+  [SerializeField]
+  GameUI gameUI;
+  [SerializeField]
+  Ammo ammo;
+
   public GameObject pistol;
   public GameObject assaultRifle;
   public GameObject shotgun;
-
-  private GameObject activeGun;
+  public GameObject activeGun;
 
 	// Use this for initialization
 	void Start () {
-	
+    gameUI.SetAmmoText(ammo.GetAmmo(activeGun.tag));
 	}
 	
 	// Update is called once per frame
@@ -38,10 +42,10 @@ public class GunEquipper : MonoBehaviour {
 
     weapon.SetActive(true);
     activeGun = weapon;
+    gameUI.SetAmmoText(ammo.GetAmmo(activeGun.tag));
   }
 
   public GameObject GetActiveWeapon() {
-
     return activeGun;
   }
 }
