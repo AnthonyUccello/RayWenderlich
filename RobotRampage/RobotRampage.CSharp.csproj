@@ -77,6 +77,8 @@
     <Compile Include="Assets\Scripts\GunEquipper.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Missile.cs" />
+    <Compile Include="Assets\Scripts\Pickup.cs" />
+    <Compile Include="Assets\Scripts\PickupSpawn.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Robot.cs" />
     <Compile Include="Assets\Scripts\RobotSpawn.cs" />

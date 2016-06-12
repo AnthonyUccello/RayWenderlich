@@ -7,18 +7,26 @@ public class Ammo : MonoBehaviour {
   [SerializeField]
   GameUI gameUI;
 
-  public int pistolAmmo;
-  public int shotgunAmmo;
-  public int assaultRifleAmmo;
+  private int pistolAmmo = 20;
+  private int shotgunAmmo = 10;
+  private int assaultRifleAmmo = 50;
 
   public Dictionary<string, int> tagToAmmo;
 
-  void Start() {
+  void Awake() {
     tagToAmmo = new Dictionary<string, int> {
       { Constants.PistolTag , pistolAmmo},
       { Constants.ShotgunTag , shotgunAmmo},
       { Constants.AssaultRifleTag , assaultRifleAmmo},
     };
+  }
+
+  public void AddAmmo(string tag, int ammo) {
+    if (!tagToAmmo.ContainsKey(tag)) {
+      Debug.LogError("Unrecognized gun type passed: " + tag);
+    }
+
+    tagToAmmo[tag] += ammo;
   }
 
   // Returns true if gun has ammo

@@ -12,6 +12,8 @@ public class GameUI : MonoBehaviour {
   private Text armorText;
   [SerializeField]
   private Text scoreText;
+  [SerializeField]
+  private Text pickupText;
 
   [SerializeField]
   Player player;
@@ -36,5 +38,16 @@ public class GameUI : MonoBehaviour {
 
   public void SetScoreText(int score ) {
     scoreText.text = "Score: " + score;
+  }
+
+  public void SetPickUpText(string text) {
+    pickupText.GetComponent<Text>().enabled = true;
+    pickupText.text = text;
+    StartCoroutine("hidePickupText");
+  }
+
+  IEnumerator hidePickupText() {
+    yield return new WaitForSeconds(4);
+    pickupText.GetComponent<Text>().enabled = false;
   }
 }

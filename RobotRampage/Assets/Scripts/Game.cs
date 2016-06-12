@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour {
 
-  public GameObject player;
+  public GameObject gameOverPanel;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	  if (player == null)
-    {
-      Debug.Log("Game Over");
-    }
-	}
+  public void ShowGameOver() {
+    gameOverPanel.SetActive(true);
+  }
+
+  public void RestartGame() {
+    SceneManager.LoadScene(Constants.SceneBattle);
+    gameOverPanel.SetActive(true);
+  }
+
+  public void Exit() {
+    Application.Quit();
+  }
 }
