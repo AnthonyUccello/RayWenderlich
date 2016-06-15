@@ -4,28 +4,17 @@ using System.Collections;
 [RequireComponent (typeof(AudioSource))]
 public class Gun : MonoBehaviour {
   
-  [SerializeField]
-  Ammo ammo;
-
+  public Ammo ammo;
+  public float fireRate;
+  public float zoomFactor;
   public int range;
   public int damage;
+  public AudioClip dryFire;
 
-	void Update () {
+  protected float lastFireTime;
 
-    if (Input.GetMouseButtonDown(0)) {
-      // Left Click
-      // Check if ammo
-      if (ammo.HasAmmo(tag)) {
-        Fire();
-        ammo.ConsumeAmmo(tag);
-      } else {
-        // Play dry fire
-      }
-
-    } else if (Input.GetMouseButtonDown(1)) {
-      // Right Click (Zoom)
-    }
-
+  void Start() {
+    lastFireTime = Time.time - 10;
   }
 
   protected void Fire() {
@@ -40,11 +29,12 @@ public class Gun : MonoBehaviour {
   }
 
   private void processHit(GameObject hitObject) {
-    if (hitObject.GetComponent<Unit>() == null)
-    {
-      return;
+    if (hitObject.GetComponent<Player>() != null) {
+      hitObject.GetComponent<Player>().TakeDamage(damage);
     }
 
-    hitObject.GetComponent<Unit>().TakeDamage(damage);
+    if (hitObject.GetComponent<Robot>() != null) {
+      hitObject.GetComponent<Robot>().TakeDamage(damage);
+    }
   }
 }

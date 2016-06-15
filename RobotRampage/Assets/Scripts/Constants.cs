@@ -6,7 +6,7 @@ public class Constants {
 
   // Scenes
   public const string SceneBattle = "Battle";
-  public const string SceneMenu   = "Menu";
+  public const string SceneMenu = "Menu";
 
   // Gun Types
   public const string PistolTag = "Pistol";
@@ -19,6 +19,10 @@ public class Constants {
   public const int PickUpShotgunAmmo = 3;
   public const int PickUpHealth = 4;
   public const int PickUpArmor = 5;
+
+  // Misc
+  public const string Game = "Game";
+  public const float CameraDefaultZoom = 60f;
 
   public static readonly int[] AllPickupTypes = new int[5] {
     PickUpPistolAmmo,

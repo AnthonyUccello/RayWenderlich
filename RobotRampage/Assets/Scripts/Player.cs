@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : Unit
+public class Player : MonoBehaviour
 {
+  public int health;
   public int armor;
   public Ammo ammo;
 
   public GameUI ui;
   public GunEquipper gunEquipper;
+  public Game game;
 
-  new public void TakeDamage(int amount) {
+  public void TakeDamage(int amount) {
     int healthDamage = amount;
 
     if (armor > 0) {
@@ -17,21 +19,24 @@ public class Player : Unit
       effectiveArmor -= healthDamage;
 
       // If there is still armor, don't need to process health damage
-      if (effectiveArmor > 0)
-      {
+      if (effectiveArmor > 0) {
         armor = effectiveArmor / 2;
         ui.SetArmorText(armor);
         return;
       }
-
-      // Turn negative remaining effect armor into remaining health damage
-      healthDamage = effectiveArmor;
+      
       armor = 0;
+      ui.SetArmorText(armor);
     }
 
-    base.TakeDamage(amount);
+    health -= healthDamage;
+
     ui.SetHealthText(health);
     ui.SetArmorText(armor);
+
+    if (health <= 0) {
+      game.GameOver();
+    }
   }
 
   // Player has picked up item, apply its effects
@@ -49,6 +54,9 @@ public class Player : Unit
         break;
       case Constants.PickUpPistolAmmo:
         pickupPisolAmmo();
+        break;
+      case Constants.PickUpShotgunAmmo:
+        pickupShotgunAmmo();
         break;
       default:
         Debug.LogError("Bad pickup type passed" + pickupType);

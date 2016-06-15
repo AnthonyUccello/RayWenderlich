@@ -23,6 +23,8 @@ public class PickupSpawn : MonoBehaviour {
     pickup = Instantiate(Resources.Load("Pickup") as GameObject);
     pickup.transform.position = transform.position;
     pickup.transform.parent = transform;
+    pickup.GetComponent<Pickup>().type = 
+      Constants.AllPickupTypes[Random.Range(0, Constants.AllPickupTypes.Length - 1)];
   }
 
 }

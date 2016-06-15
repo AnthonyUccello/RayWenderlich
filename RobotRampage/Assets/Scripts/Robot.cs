@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Robot : MonoBehaviour {
 
+  public int health;
   public int range;
   public float fireRate;
 
@@ -30,10 +31,28 @@ public class Robot : MonoBehaviour {
     }
 	}
 
-  private void fire()
-  {
+  private void fire() {
     GameObject missile = Instantiate(Resources.Load<GameObject>("RobotMissile"));
     missile.transform.position = missileFireSpot.transform.position;
     missile.transform.rotation = missileFireSpot.transform.rotation;
+  }
+
+  public void TakeDamage(int amount) {
+    health -= amount;
+
+    if (health <= 0)
+    {
+      Destroy(gameObject);
+    }
+
+    // Add player score, play sound effect and die
+    if (health <= 0) {
+      GameObject
+        .FindGameObjectWithTag(Constants.Game)
+        .GetComponent<Game>().AddRobotKillToScore();
+    } else {
+      // Play got hit animation
+      GetComponent<Animation>().Play();
+    }
   }
 }
